@@ -26,6 +26,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -35,7 +36,7 @@ const Navbar = () => {
     { name: 'Tools', path: '/tools' },
     { name: 'Countries', path: '/country-loans' },
     { name: 'Community', path: '/community' },
-    { name: 'Company', path: '/company' },
+    { name: 'Company', hasDropdown: true },
   ];
 
   const servicesData = [
@@ -138,6 +139,13 @@ const Navbar = () => {
     }
   ];
 
+  const companyDropdown: { name: string; path: string }[] = [
+    { name: 'About Us', path: '/company' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'Careers', path: '/company#careers' },
+    { name: 'Our Team', path: '/company#team' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -189,7 +197,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
               <div key={item.name} className="relative">
-                {item.hasDropdown ? (
+                {item.hasDropdown && item.name === 'Services' ? (
                   <div
                     className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group cursor-pointer ${
                       location.pathname === item.path
@@ -278,6 +286,47 @@ const Navbar = () => {
                       )}
                     </AnimatePresence>
                   </div>
+                ) : item.hasDropdown && item.name === 'Company' ? (
+                  <div
+                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 relative group cursor-pointer ${
+                      location.pathname.startsWith('/company')
+                        ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
+                        : 'text-neutral-700 dark:text-neutral-300 hover:text-primary-600 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                    }`}
+                    onMouseEnter={() => setIsCompanyOpen(true)}
+                    onMouseLeave={() => setIsCompanyOpen(false)}
+                  >
+                    <div className="flex items-center gap-1">
+                      {item.name}
+                      <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                    </div>
+                    <AnimatePresence>
+                      {isCompanyOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden z-50"
+                          onMouseEnter={() => setIsCompanyOpen(true)}
+                          onMouseLeave={() => setIsCompanyOpen(false)}
+                        >
+                          <div className="py-2">
+                            {companyDropdown.map((link) => (
+                              <Link
+                                key={link.name}
+                                to={link.path as string}
+                                className="block px-5 py-3 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-200"
+                                onClick={() => setIsCompanyOpen(false)}
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ) : (
                   <Link
                     to={item.path}
@@ -356,7 +405,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    {item.hasDropdown ? (
+                    {item.hasDropdown && item.name === 'Services' ? (
                       <div className="space-y-2">
                         <button
                           onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -409,6 +458,44 @@ const Navbar = () => {
                                       );
                                     })}
                                   </div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : item.hasDropdown && item.name === 'Company' ? (
+                      <div className="space-y-2">
+                        <button
+                          onClick={() => setIsCompanyOpen(!isCompanyOpen)}
+                          className={`w-full flex items-center justify-between py-3 px-4 rounded-xl font-medium transition-all duration-300 ${
+                            location.pathname.startsWith('/company')
+                              ? 'text-primary-600 bg-primary-50 dark:bg-primary-900/20'
+                              : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isCompanyOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {isCompanyOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="ml-4 space-y-2 border-l-2 border-neutral-200 dark:border-neutral-700 pl-4">
+                                {companyDropdown.map((link) => (
+                                  <Link
+                                    key={link.name}
+                                    to={link.path as string}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block py-2 px-2 rounded-lg text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all duration-200"
+                                  >
+                                    {link.name}
+                                  </Link>
                                 ))}
                               </div>
                             </motion.div>
