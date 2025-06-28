@@ -10,6 +10,8 @@ import Community from './pages/Community';
 import CountryLoans from './pages/CountryLoans';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import Company from './pages/Company';
+import OurTeam from './pages/OurTeam';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/country-loans" element={<CountryLoans />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/company" element={<Company />} />
+            <Route path="/our-team" element={<OurTeam />} />
           </Routes>
         </main>
         <Footer />

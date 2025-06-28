@@ -143,7 +143,7 @@ const Navbar = () => {
     { name: 'About Us', path: '/company' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Careers', path: '/company#careers' },
-    { name: 'Our Team', path: '/company#team' },
+    { name: 'Our Team', path: '/our-team' },
   ];
 
   useEffect(() => {
