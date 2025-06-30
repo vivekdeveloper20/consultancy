@@ -129,6 +129,8 @@ const Services = () => {
     }
   ];
 
+  const [selectedService, setSelectedService] = React.useState('all');
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -148,6 +150,28 @@ const Services = () => {
             </p>
           </motion.div>
         </div>
+      </section>
+
+      {/* Dropdown Filter */}
+      <section className="py-4 bg-white sticky top-0 z-20 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 w-full">
+            <label htmlFor="service-dropdown" className="font-medium text-gray-700 mb-1 sm:mb-0 sm:mr-2 text-base sm:text-sm">Select Service:</label>
+            <select
+              id="service-dropdown"
+              className="w-full sm:w-64 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary text-gray-900 bg-white shadow-sm transition-all duration-200 text-base sm:text-sm"
+              value={selectedService}
+              onChange={e => setSelectedService(e.target.value)}
+              style={{ minHeight: '48px' }}
+            >
+              <option value="all">All Services</option>
+              {services.map((service, idx) => (
+                <option key={service.title} value={service.title}>{service.title}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="h-2 md:h-4" />
       </section>
 
       {/* Services Grid */}

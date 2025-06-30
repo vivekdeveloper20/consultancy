@@ -34,7 +34,10 @@ import {
   GraduationCap,
   Banknote,
   HelpCircle,
-  Share2
+  Share2,
+  Heart,
+  Plane,
+  Smartphone
 } from 'lucide-react';
 import Player from 'lottie-react';
 import SpinWheel from '../components/SpinWheel';
@@ -321,60 +324,125 @@ const Home = () => {
   // In Home component, add post-admission services data
   const postAdmissionServices = [
     {
-      icon: CreditCard,
-      color: 'text-indigo-500',
-      title: 'US Credit Card',
-      desc: 'Get premium credit cards for your international studies with special student benefits.',
-      cta: 'Explore cards',
-      link: '/services/credit-card'
+      icon: BookOpen,
+      color: 'text-fuchsia-500',
+      title: 'Abroad Education Loan',
+      desc: 'Get the best loan offers for your study abroad journey from top lenders.',
+      cta: 'Explore Loan Offers',
+      link: '/student-loan',
+      bg: 'bg-gradient-to-br from-pink-300 via-fuchsia-200 to-purple-200',
+      span: 'row-span-2',
     },
     {
       icon: Lock,
       color: 'text-emerald-500',
-      title: 'Blocked Account',
-      desc: 'Set up your mandatory blocked account for visa requirements in minutes.',
-      cta: 'Get started',
-      link: '/services/blocked-account'
+      title: 'Block Account (Germany)',
+      desc: 'Open your blocked account for German visa requirements quickly and easily.',
+      cta: 'Explore Options',
+      link: '/services/blocked-account',
+      bg: 'bg-gradient-to-br from-pink-100 via-purple-100 to-white',
     },
     {
-      icon: Globe,
-      color: 'text-cyan-500',
-      title: 'Student Forex Card',
-      desc: 'Special forex cards for students with zero markup fees and best exchange rates.',
-      cta: 'Apply now',
-      link: '/services/forex-card'
+      icon: GraduationCap,
+      color: 'text-blue-500',
+      title: 'Scholarships',
+      desc: 'Find and apply for scholarships tailored to your profile and destination.',
+      cta: 'Apply Now',
+      link: '/services/scholarships',
+      bg: 'bg-gradient-to-br from-blue-200 via-cyan-100 to-blue-100',
+      span: 'row-span-2',
     },
     {
-      icon: HomeIcon,
-      color: 'text-pink-500',
-      title: 'Student Accommodation',
-      desc: 'Find verified student housing near your university worldwide.',
-      cta: 'Search housing',
-      link: '/services/accommodation'
+      icon: Banknote,
+      color: 'text-cyan-600',
+      title: 'Bank Account',
+      desc: 'Open your international student bank account before you travel.',
+      cta: 'Explore Options',
+      link: '/services/bank-account',
+      bg: 'bg-gradient-to-br from-blue-50 via-gray-100 to-white',
     },
     {
       icon: BookOpen,
-      color: 'text-yellow-500',
-      title: 'Scholarship Assistance',
-      desc: 'Discover and apply for scholarships tailored to international students.',
-      cta: 'Find scholarships',
-      link: '/services/scholarships'
+      color: 'text-emerald-500',
+      title: 'Domestic Education Loan',
+      desc: 'Get education loans for studies in India with flexible terms.',
+      cta: 'Explore Universities',
+      link: '/student-loan',
+      bg: 'bg-gradient-to-br from-teal-200 via-emerald-100 to-cyan-200',
+      span: 'row-span-2',
+    },
+    {
+      icon: ArrowRight,
+      color: 'text-yellow-600',
+      title: 'Refinancing',
+      desc: 'Refinance your existing education loan for better rates and terms.',
+      cta: 'Find Place',
+      link: '/services/refinancing',
+      bg: 'bg-gradient-to-br from-yellow-200 via-orange-100 to-amber-200',
+      span: 'row-span-2',
+    },
+    {
+      icon: CreditCard,
+      color: 'text-indigo-500',
+      title: 'Credit Card',
+      desc: 'Get premium student credit cards with exclusive benefits.',
+      cta: 'Explore Options',
+      link: '/services/credit-card',
+      bg: 'bg-gradient-to-br from-indigo-100 via-purple-100 to-white',
+    },
+    {
+      icon: Banknote,
+      color: 'text-purple-500',
+      title: 'Guaranteed Investment Certificate (Canada)',
+      desc: 'Open a GIC account for your Canadian study visa process.',
+      cta: 'Explore Options',
+      link: '/services/gic',
+      bg: 'bg-gradient-to-br from-blue-100 via-purple-100 to-white',
     },
     {
       icon: Banknote,
       color: 'text-green-500',
-      title: 'International Bank Account',
-      desc: 'Open your student bank account before you arrive in your study country.',
-      cta: 'Open account',
-      link: '/services/bank-account'
+      title: 'Forex Card',
+      desc: 'Get a student forex card with zero markup and best rates.',
+      cta: 'Explore Options',
+      link: '/services/forex-card',
+      bg: 'bg-gradient-to-br from-green-100 via-lime-100 to-cyan-100',
     },
     {
-      icon: HelpCircle,
-      color: 'text-fuchsia-500',
-      title: 'Visa Assistance',
-      desc: 'Expert guidance for your student visa application process.',
-      cta: 'Get help',
-      link: '/services/visa-assistance'
+      icon: Heart,
+      color: 'text-pink-500',
+      title: 'Health Insurance',
+      desc: 'Comprehensive health insurance plans for students abroad.',
+      cta: 'Explore Options',
+      link: '/services/health-insurance',
+      bg: 'bg-gradient-to-br from-pink-100 via-purple-100 to-white',
+    },
+    {
+      icon: Globe,
+      color: 'text-blue-500',
+      title: 'Travel Insurance',
+      desc: 'Protect your journey with travel insurance for students.',
+      cta: 'Explore Options',
+      link: '/services/travel-insurance',
+      bg: 'bg-gradient-to-br from-blue-100 via-cyan-100 to-white',
+    },
+    {
+      icon: Plane,
+      color: 'text-cyan-500',
+      title: 'Flight Tickets',
+      desc: 'Book discounted student flight tickets to your destination.',
+      cta: 'Book Now',
+      link: '/services/flight-tickets',
+      bg: 'bg-gradient-to-br from-cyan-100 via-blue-100 to-white',
+    },
+    {
+      icon: Smartphone,
+      color: 'text-indigo-500',
+      title: 'Sim Card',
+      desc: 'Get your international SIM card before you fly.',
+      cta: 'Apply Now',
+      link: '/services/sim-card',
+      bg: 'bg-gradient-to-br from-indigo-100 via-blue-100 to-white',
     },
   ];
 
@@ -387,8 +455,8 @@ const Home = () => {
         <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-accent-200 to-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }} />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="relative w-full px-4 md:px-8 lg:px-12 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -1034,8 +1102,8 @@ const Home = () => {
 
       {/* Post Admission Services Section */}
       <section className="relative py-20 overflow-visible bg-gradient-to-br from-cyan-50 via-fuchsia-50 to-indigo-100 dark:from-cyan-900 dark:via-fuchsia-900 dark:to-indigo-900">
-        {/* Decorative SVG Pattern */}
-        <svg className="absolute left-0 top-0 w-full h-full opacity-20 pointer-events-none z-0" width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Animated SVG or gradient background */}
+        <svg className="absolute left-0 top-0 w-full h-full opacity-10 pointer-events-none z-0 animate-pulse-glow" width="100%" height="100%" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill="url(#pattern1)" fillOpacity="1" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
           <defs>
             <linearGradient id="pattern1" x1="0" y1="0" x2="1440" y2="320" gradientUnits="userSpaceOnUse">
@@ -1060,41 +1128,42 @@ const Home = () => {
               Everything you need after your admission, in a vibrant, modern style.
             </p>
           </motion.div>
-          {/* Masonry-like grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+          {/* Modern Masonry-like Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {postAdmissionServices.map((service, idx) => {
               const Icon = service.icon;
-              // Vary card height for masonry effect
-              const cardHeights = ["h-96", "h-80", "h-88", "h-72", "h-96", "h-80", "h-88"];
               return (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ rotate: [0, 2, -2, 0], scale: 1.07, boxShadow: '0 12px 40px 0 rgba(80, 80, 200, 0.18), 0 0 0 8px #f0abfc33' }}
-                  transition={{ duration: 0.7, delay: idx * 0.1, type: 'spring' }}
+                  whileHover={{ scale: 1.05, rotate: [0, 1, -1, 0], boxShadow: '0 8px 32px 0 rgba(80, 80, 200, 0.10), 0 0 0 4px #f0abfc33' }}
+                  transition={{ duration: 0.7, delay: idx * 0.08, type: 'spring' }}
                   viewport={{ once: true }}
-                  className={`relative break-inside-avoid rounded-3xl shadow-xl border-0 p-8 flex flex-col items-center text-center bg-white/90 dark:bg-neutral-900/80 backdrop-blur-2xl group cursor-pointer ${cardHeights[idx % cardHeights.length]}`}
-                  style={{ minHeight: '260px' }}
+                  className={`relative rounded-3xl shadow-xl border-0 p-6 md:p-8 flex flex-col justify-between ${service.bg} ${service.span || ''} group cursor-pointer min-h-[220px] md:min-h-[260px] hover:shadow-2xl transition-all duration-300`}
+                  style={{ aspectRatio: idx % 3 === 0 ? '2/3' : idx % 4 === 0 ? '1/1' : '4/5' }}
                 >
-                  {/* Floating colored shadow */}
-                  <div className={`absolute -inset-2 z-0 rounded-3xl blur-2xl opacity-40 pointer-events-none ${service.color}`} />
-                  <motion.div
-                    className={`relative z-10 w-20 h-20 mb-4 flex items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-100 via-fuchsia-100 to-indigo-100 dark:from-cyan-900 dark:via-fuchsia-900 dark:to-indigo-900 shadow group-hover:scale-110 transition-transform duration-300 ${service.color}`}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse', delay: idx * 0.1 }}
-                    whileHover={{ scale: 1.15 }}
-                  >
-                    <Icon className={`w-12 h-12 ${service.color} group-hover:animate-bounce`} />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-indigo-700 dark:text-indigo-100 mb-2 font-display relative z-10">{service.title}</h3>
-                  <p className="text-base text-neutral-600 dark:text-neutral-300 mb-6 relative z-10">{service.desc}</p>
+                  {/* Icon or Image */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className={`inline-flex items-center justify-center rounded-2xl shadow-lg bg-white/80 p-3 text-3xl ${service.color} group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-10 h-10 ${service.color}`} />
+                    </span>
+                  </div>
+                  <div className="flex-1 flex flex-col justify-between">
+                    <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-2 font-display leading-tight group-hover:text-fuchsia-600 transition-colors duration-300">{service.title}</h3>
+                    <p className="text-base text-neutral-600 dark:text-neutral-200 mb-4 flex-1">{service.desc}</p>
+                  </div>
                   <Link
                     to={service.link}
-                    className="relative z-10 inline-flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white px-6 py-3 rounded-xl font-semibold shadow hover:shadow-lg transition-all duration-300 group text-base"
+                    className="mt-auto inline-flex items-center justify-between bg-white/80 dark:bg-neutral-900/80 border border-fuchsia-100 dark:border-fuchsia-800 text-fuchsia-700 dark:text-fuchsia-200 px-5 py-3 rounded-xl font-semibold shadow hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 hover:text-fuchsia-900 dark:hover:text-fuchsia-100 transition-all duration-300 group text-base"
                   >
                     {service.cta}
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
+                  {/* Shine effect */}
+                  <span className="absolute left-0 top-0 w-full h-full rounded-3xl pointer-events-none overflow-hidden">
+                    <span className="absolute left-[-60%] top-0 w-2/3 h-full bg-gradient-to-r from-white/60 via-white/10 to-transparent rotate-12 blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700 group-hover:left-[120%]" />
+                  </span>
                 </motion.div>
               );
             })}
